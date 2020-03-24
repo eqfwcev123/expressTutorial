@@ -43,7 +43,9 @@ app.use(cookieParser());
 // http://localhost:3000/static/stylesheets/style.css
 app.use('/static',express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', function(req,res){
+  res.render('index', {title:'Express 튜토리얼', message:"익스프레스 프레임워크 공부!"})
+});
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
